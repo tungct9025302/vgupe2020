@@ -29,7 +29,7 @@ slots is an array of (startHour, endHour)
 ### _getPlayerBookings_
 * __Description__: for a given day, city, and playerId, 
 get all the  bookings:
-* __security/caller__: callerId
+* __security/caller__: staffId / playerId
 * __request__: getPlayerBookings(day, cityId, playerId)
 * __response__: 
   * __success__: successCode + array of (centreId, venueBookings), where
@@ -41,7 +41,7 @@ bookings is an array of (startHour, endHour)
 ### _getVenueBookings_
 * __Description__: for a given day and venueId
 get all the bookings:
-* __security/caller__: callerId
+* __security/caller__: staffId
 * __request__: getVenueBookings(day, venueId)
 * __response__: 
   * __success__: successCode + array of (courtId, bookings), where
@@ -51,7 +51,7 @@ bookings is an array of (startHour, endHour)
 ### _createBooking_
 * __Description__: for a given day, court, start, end, and playerId, 
 create a new booking.
-* __security/caller__: callerId
+* __security/caller__: playerId
 * __request__: createBooking(day, courtId, start, end, playerId)
 * __response__: 
   * __success__: successCode
@@ -59,7 +59,7 @@ create a new booking.
 
 ### _cancelBooking_
 * __Description__: for a given bookingId, cancel the booking
-* __security/caller__: callerId
+* __security/caller__: playerId
 * __request__: cancelBooking(bookingId)
 * __response__: 
   * __success__: successCode
@@ -69,7 +69,7 @@ create a new booking.
 * __Description__: for a given bookingId, get all the booking's
 information: cityId, venueId, courtId, day, start, end, playerId,
 statusId.
-* __security/caller__: callerId
+* __security/caller__: playerId / staffId
 * __request__: getBookingInfo(bookingId)
 * __response__: 
   * __success__: successCode
@@ -78,7 +78,7 @@ statusId.
 ### _updateBookingPaymentStatus_
 * __Description__: for a given bookingId, update the booking's 
 payment status
-* __security/caller__: callerId
+* __security/caller__: staffId
 * __request__: updateBookingPaymentStatus(bookingId, statusId)
 * __response__: 
   * __success__: successCode
@@ -87,7 +87,7 @@ payment status
 ### _getNameCity_/_getNameVenue_/_getNameCourt_/_getNameUser_
 * Description: for a given cityId/venueId/courtId/userId,
 get the corresponding name (to display)
-* security/caller: callerId
+* security/caller: playerId
 * request: getNameCity(cityId)/getNameVenue(venueId)/getNameCourt(courtId)/getNameUser(userId)
 * response: 
   * success: successCode + name of the cityId/venueId/courtId/userId
